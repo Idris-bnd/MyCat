@@ -1,0 +1,37 @@
+.Header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10rem;
+    padding-top: 1rem;
+
+    .header--left{
+        a{
+            display: flex;
+            align-items: flex-end;
+            text-decoration: none;
+            img{
+                height: 4rem;
+                width: 4rem;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+            h1{
+                font-size: 3rem;
+                color: #1f1f1f;
+            }
+        }
+    }
+
+    .header--right{
+        display: flex;
+        align-items: center;
+
+        a{
+            color: #1f1f1f;
+            font-size: 1.5rem;
+            i{
+                color: #f4c01e;
+            }
+        }
+    }
+}

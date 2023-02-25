@@ -1,0 +1,28 @@
+.Footer{
+    height: 15vh;
+    background-color: #1f1f1f;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    color: antiquewhite;
+
+    .socialNetworks{
+        display: flex;
+        gap: 1rem;
+        a{
+            color: antiquewhite;
+            font-size: 2rem;
+            transition: color .2s;
+            &:hover{
+                &.linkedin{
+                    color: #0A66C2;
+                }
+                &.github{
+                    color: #24292F;
+                }
+            }
+        }
+    }
+}
