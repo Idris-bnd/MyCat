@@ -2,10 +2,11 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    font-family: 'Tilt Neon', cursive;
 }
 
 body{
     min-height: 100vh;
     width: 100vw;
-    font-family: 'Tilt Neon', cursive;
+    overflow-x: hidden;
 }

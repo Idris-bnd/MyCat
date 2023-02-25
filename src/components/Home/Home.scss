@@ -1,0 +1,57 @@
+.Home{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .catSection{
+        margin: 5rem 10rem 2rem 10rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        .catDiv{
+            position: relative;
+            height: 20rem;
+            width: 20rem;
+            cursor: pointer;
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+            i{
+                position: absolute;
+                top: .5rem;
+                right: .5rem;
+                font-size: 1.5rem;
+                color: #555d55;
+                transition: color .2s;
+                &.favorite{
+                    color: #f4c01e;
+                }
+                &:hover{
+                    color: #f4c01e;
+                    &.favorite{
+                        color: #555d55;
+                    }
+                }
+            }
+        }
+    }
+
+    .callMoreCatsButton{
+        padding: 1rem 2rem;
+        background-color: rgb(105, 45, 45);
+        color: antiquewhite;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        border-radius: .5rem;
+        margin-bottom: 2rem;
+        transition: background-color .2s;
+        &:hover{
+            background-color: rgb(77, 33, 33);
+        }
+    }
+}
