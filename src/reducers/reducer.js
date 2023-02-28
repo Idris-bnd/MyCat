@@ -1,4 +1,4 @@
-import { SAVE_FIRST_CATS_HOME, TOGGLE_CAT_TO_FAVORITES_ARRAY } from "../actions/action";
+import { ADD_CAT_TO_FAVORITES, CHANGE_FAVORITE_TO_TRUE, DELETE_CAT_TO_FAVORITES, INITIATE_FAV_CAT_ARRAY, SAVE_FIRST_CATS_HOME } from "../actions/action";
 
 export const initialState = {
     homeDataList: [],
@@ -11,27 +11,45 @@ switch (action.type) {
         return{
             ...state,
             homeDataList: action.data
-        }
-    case TOGGLE_CAT_TO_FAVORITES_ARRAY:
-        action.cat = {
+        };
+    case ADD_CAT_TO_FAVORITES:
+        localStorage.setItem('favoriteCatArray', JSON.stringify(action.favData));
+        return{
+            ...state,
+            homeDataList: action.homeData,
+            favoritesDataList: action.favData,
+        };
+    case DELETE_CAT_TO_FAVORITES:
+        const localArray = JSON.parse(localStorage.getItem('favoriteCatArray'));
+        localStorage.setItem('favoriteCatArray', JSON.stringify(localArray.filter((cat) => cat.id !== action.id)))
+        return{
+            ...state,
+            homeDataList: action.homeData,
+            favoritesDataList: state.favoritesDataList.filter((cat) => cat.id !== action.id)
+        };
+    case INITIATE_FAV_CAT_ARRAY:
+        return{
+            ...state,
+            favoritesDataList: action.data
+        };
+    case CHANGE_FAVORITE_TO_TRUE:
+        const myCatt = {
             ...state.homeDataList.find((cat) => cat.id === action.id),
-            favorite: !state.homeDataList.find((cat) => cat.id === action.id).favorite,
+            favorite: true,
         }
-        action.newCatArray = state.homeDataList
-        action.newCatArray.forEach((cat, index) => {
-            if (cat.id === action.id) {
+        action.actualHomeData = state.homeDataList;
+        console.log(action.actualHomeData);
+        state.homeDataList.forEach((cat, index) => {
+            if(cat.id === action.id){
                 console.log(index);
-                action.newCatArray.splice(index, 1, action.cat)
+                action.actualHomeData.splice(index, 0, myCatt)
                 return
             }
         })
         return{
             ...state,
-            favoritesDataList: [
-                ...state.favoritesDataList,
-                action.cat
-            ] 
-        }
+            homeDataList: action.actualHomeData
+        };
         default:
     return state;
 }

@@ -11,8 +11,31 @@ export const saveFirstCatsHome = (data) => ({
 });
 
 // ajouter un chat à ses favoris
-export const TOGGLE_CAT_TO_FAVORITES_ARRAY = 'TOGGLE_CAT_TO_FAVORITES_ARRAY';
-export const toggleCatToFavoritesArray = (id) => ({
-  type: TOGGLE_CAT_TO_FAVORITES_ARRAY,
+export const ADD_CAT_TO_FAVORITES = 'ADD_CAT_TO_FAVORITES';
+export const addCatToFavorites = (homeData, favData) => ({
+  type: ADD_CAT_TO_FAVORITES,
+  homeData: homeData,
+  favData: favData,
+});
+
+// ajouter un chat à ses favoris
+export const CHANGE_FAVORITE_TO_TRUE = 'CHANGE_FAVORITE_TO_TRUE';
+export const changeFavoriteToTrue = (id) => ({
+  type: CHANGE_FAVORITE_TO_TRUE,
   id: id,
+});
+
+// ajouter un chat à ses favoris
+export const DELETE_CAT_TO_FAVORITES = 'DELETE_CAT_TO_FAVORITES';
+export const deleteCatToFavorites = (homeData, id) => ({
+  type: DELETE_CAT_TO_FAVORITES,
+  homeData: homeData,
+  id: id,
+});
+
+// initier le tableau des chats favoris
+export const INITIATE_FAV_CAT_ARRAY = 'INITIATE_FAV_CAT_ARRAY';
+export const initiateFavCatArray = (data) => ({
+  type: INITIATE_FAV_CAT_ARRAY,
+  data: data,
 });

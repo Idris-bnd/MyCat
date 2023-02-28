@@ -15,7 +15,7 @@ function Footer() {
                 <i className="fa-brands fa-square-github" />
             </a>
         </div>
-        <p>© 2023 Idris BEN AHMED, Tous droits réservés.</p>
+        <p>© 2023 Idris BEN AHMED.</p>
     </footer>
  )
 }
